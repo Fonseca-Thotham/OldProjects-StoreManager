@@ -90,19 +90,13 @@ describe('Testes das camadas Model, Service e Controller', () => {
       const min = 3;
       const max = 3;
 
-      const modelLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, modelRegex));
-      expect(modelLayer.total).toBeGreaterThanOrEqual(min);
-      expect(modelLayer.covered).toBeGreaterThanOrEqual(min);
+      const modelLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, modelRegex))
       expect(porcentage(modelLayer)).toBeGreaterThanOrEqual(max);
 
       const serviceLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, serviceRegex));
-      expect(serviceLayer.total).toBeGreaterThanOrEqual(min);
-      expect(serviceLayer.covered).toBeGreaterThanOrEqual(min);
       expect(porcentage(serviceLayer)).toBeGreaterThanOrEqual(max);
 
       const controllerLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, controllerRegex));
-      expect(controllerLayer.total).toBeGreaterThanOrEqual(min);
-      expect(controllerLayer.covered).toBeGreaterThanOrEqual(min);
       expect(porcentage(controllerLayer)).toBeGreaterThanOrEqual(max);
     });
   });
@@ -116,19 +110,13 @@ describe('Testes das camadas Model, Service e Controller', () => {
       const min = 4;
       const max = 4;
 
-      const modelLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, modelRegex));
-      expect(modelLayer.total).toBeGreaterThanOrEqual(min);
-      expect(modelLayer.covered).toBeGreaterThanOrEqual(min);
+      const modelLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, modelRegex))
       expect(porcentage(modelLayer)).toBeGreaterThanOrEqual(max);
 
       const serviceLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, serviceRegex));
-      expect(serviceLayer.total).toBeGreaterThanOrEqual(min);
-      expect(serviceLayer.covered).toBeGreaterThanOrEqual(min);
       expect(porcentage(serviceLayer)).toBeGreaterThanOrEqual(max);
 
       const controllerLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, controllerRegex));
-      expect(controllerLayer.total).toBeGreaterThanOrEqual(min);
-      expect(controllerLayer.covered).toBeGreaterThanOrEqual(min);
       expect(porcentage(controllerLayer)).toBeGreaterThanOrEqual(max);
     });
   });
@@ -143,19 +131,13 @@ describe('Testes das camadas Model, Service e Controller', () => {
       const min = 6;
       const max = 6;
 
-      const modelLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, modelRegex));
-      expect(modelLayer.total).toBeGreaterThanOrEqual(min);
-      expect(modelLayer.covered).toBeGreaterThanOrEqual(min);
+      const modelLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, modelRegex))
       expect(porcentage(modelLayer)).toBeGreaterThanOrEqual(max);
 
       const serviceLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, serviceRegex));
-      expect(serviceLayer.total).toBeGreaterThanOrEqual(min);
-      expect(serviceLayer.covered).toBeGreaterThanOrEqual(min);
       expect(porcentage(serviceLayer)).toBeGreaterThanOrEqual(max);
 
       const controllerLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, controllerRegex));
-      expect(controllerLayer.total).toBeGreaterThanOrEqual(min);
-      expect(controllerLayer.covered).toBeGreaterThanOrEqual(min);
       expect(porcentage(controllerLayer)).toBeGreaterThanOrEqual(max);
     });
   });
@@ -170,19 +152,13 @@ describe('Testes das camadas Model, Service e Controller', () => {
       const min = 8;
       const max = 8;
 
-      const modelLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, modelRegex));
-      expect(modelLayer.total).toBeGreaterThanOrEqual(min);
-      expect(modelLayer.covered).toBeGreaterThanOrEqual(min);
+      const modelLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, modelRegex))
       expect(porcentage(modelLayer)).toBeGreaterThanOrEqual(max);
 
       const serviceLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, serviceRegex));
-      expect(serviceLayer.total).toBeGreaterThanOrEqual(min);
-      expect(serviceLayer.covered).toBeGreaterThanOrEqual(min);
       expect(porcentage(serviceLayer)).toBeGreaterThanOrEqual(max);
 
       const controllerLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, controllerRegex));
-      expect(controllerLayer.total).toBeGreaterThanOrEqual(min);
-      expect(controllerLayer.covered).toBeGreaterThanOrEqual(min);
       expect(porcentage(controllerLayer)).toBeGreaterThanOrEqual(max);
     });
   });
@@ -197,19 +173,13 @@ describe('Testes das camadas Model, Service e Controller', () => {
       const min = 12;
       const max = 12;
 
-      const modelLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, modelRegex));
-      expect(modelLayer.total).toBeGreaterThanOrEqual(min);
-      expect(modelLayer.covered).toBeGreaterThanOrEqual(min);
+      const modelLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, modelRegex))
       expect(porcentage(modelLayer)).toBeGreaterThanOrEqual(max);
 
       const serviceLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, serviceRegex));
-      expect(serviceLayer.total).toBeGreaterThanOrEqual(min);
-      expect(serviceLayer.covered).toBeGreaterThanOrEqual(min);
       expect(porcentage(serviceLayer)).toBeGreaterThanOrEqual(max);
 
       const controllerLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, controllerRegex));
-      expect(controllerLayer.total).toBeGreaterThanOrEqual(min);
-      expect(controllerLayer.covered).toBeGreaterThanOrEqual(min);
       expect(porcentage(controllerLayer)).toBeGreaterThanOrEqual(max);
     });
   });
@@ -224,19 +194,13 @@ describe('Testes das camadas Model, Service e Controller', () => {
       const min = 12;
       const max = 12;
 
-      const modelLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, modelRegex));
-      expect(modelLayer.total).toBeGreaterThanOrEqual(min);
-      expect(modelLayer.covered).toBeGreaterThanOrEqual(min);
+      const modelLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, modelRegex))
       expect(porcentage(modelLayer)).toBeGreaterThanOrEqual(max);
 
       const serviceLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, serviceRegex));
-      expect(serviceLayer.total).toBeGreaterThanOrEqual(min);
-      expect(serviceLayer.covered).toBeGreaterThanOrEqual(min);
       expect(porcentage(serviceLayer)).toBeGreaterThanOrEqual(max);
 
       const controllerLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, controllerRegex));
-      expect(controllerLayer.total).toBeGreaterThanOrEqual(min);
-      expect(controllerLayer.covered).toBeGreaterThanOrEqual(min);
       expect(porcentage(controllerLayer)).toBeGreaterThanOrEqual(max);
     });
   });
@@ -251,19 +215,13 @@ describe('Testes das camadas Model, Service e Controller', () => {
       const min = 14;
       const max = 14;
 
-      const modelLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, modelRegex));
-      expect(modelLayer.total).toBeGreaterThanOrEqual(min);
-      expect(modelLayer.covered).toBeGreaterThanOrEqual(min);
+      const modelLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, modelRegex))
       expect(porcentage(modelLayer)).toBeGreaterThanOrEqual(max);
 
       const serviceLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, serviceRegex));
-      expect(serviceLayer.total).toBeGreaterThanOrEqual(min);
-      expect(serviceLayer.covered).toBeGreaterThanOrEqual(min);
       expect(porcentage(serviceLayer)).toBeGreaterThanOrEqual(max);
 
       const controllerLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, controllerRegex));
-      expect(controllerLayer.total).toBeGreaterThanOrEqual(min);
-      expect(controllerLayer.covered).toBeGreaterThanOrEqual(min);
       expect(porcentage(controllerLayer)).toBeGreaterThanOrEqual(max);
     });
   });
@@ -278,19 +236,13 @@ describe('Testes das camadas Model, Service e Controller', () => {
       const min = 16;
       const max = 16;
 
-      const modelLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, modelRegex));
-      expect(modelLayer.total).toBeGreaterThanOrEqual(min);
-      expect(modelLayer.covered).toBeGreaterThanOrEqual(min);
+      const modelLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, modelRegex))
       expect(porcentage(modelLayer)).toBeGreaterThanOrEqual(max);
 
       const serviceLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, serviceRegex));
-      expect(serviceLayer.total).toBeGreaterThanOrEqual(min);
-      expect(serviceLayer.covered).toBeGreaterThanOrEqual(min);
       expect(porcentage(serviceLayer)).toBeGreaterThanOrEqual(max);
 
       const controllerLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, controllerRegex));
-      expect(controllerLayer.total).toBeGreaterThanOrEqual(min);
-      expect(controllerLayer.covered).toBeGreaterThanOrEqual(min);
       expect(porcentage(controllerLayer)).toBeGreaterThanOrEqual(max);
     });
   });
@@ -305,19 +257,13 @@ describe('Testes das camadas Model, Service e Controller', () => {
       const min = 20;
       const max = 20;
 
-      const modelLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, modelRegex));
-      expect(modelLayer.total).toBeGreaterThanOrEqual(min);
-      expect(modelLayer.covered).toBeGreaterThanOrEqual(min);
+      const modelLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, modelRegex))
       expect(porcentage(modelLayer)).toBeGreaterThanOrEqual(max);
 
       const serviceLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, serviceRegex));
-      expect(serviceLayer.total).toBeGreaterThanOrEqual(min);
-      expect(serviceLayer.covered).toBeGreaterThanOrEqual(min);
       expect(porcentage(serviceLayer)).toBeGreaterThanOrEqual(max);
 
       const controllerLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, controllerRegex));
-      expect(controllerLayer.total).toBeGreaterThanOrEqual(min);
-      expect(controllerLayer.covered).toBeGreaterThanOrEqual(min);
       expect(porcentage(controllerLayer)).toBeGreaterThanOrEqual(max);
     });
   });
@@ -332,19 +278,13 @@ describe('Testes das camadas Model, Service e Controller', () => {
       const min = 25;
       const max = 25;
 
-      const modelLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, modelRegex));
-      expect(modelLayer.total).toBeGreaterThanOrEqual(min);
-      expect(modelLayer.covered).toBeGreaterThanOrEqual(min);
+      const modelLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, modelRegex))
       expect(porcentage(modelLayer)).toBeGreaterThanOrEqual(max);
 
       const serviceLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, serviceRegex));
-      expect(serviceLayer.total).toBeGreaterThanOrEqual(min);
-      expect(serviceLayer.covered).toBeGreaterThanOrEqual(min);
       expect(porcentage(serviceLayer)).toBeGreaterThanOrEqual(max);
 
       const controllerLayer = summeryCoveragePerFolder(filterPerFolder(coverageResultsArr, controllerRegex));
-      expect(controllerLayer.total).toBeGreaterThanOrEqual(min);
-      expect(controllerLayer.covered).toBeGreaterThanOrEqual(min);
       expect(porcentage(controllerLayer)).toBeGreaterThanOrEqual(max);
     });
   });
