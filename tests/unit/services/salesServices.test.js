@@ -1,8 +1,8 @@
 const sinon = require('sinon');
 const { expect } = require('chai');
 
-const salesModel = require('../../../src/models/sales.model');
-const salesServices = require('../../../src/services/sales.service');
+const salesModel = require('../../../src/models/sales.models');
+const salesServices = require('../../../src/services/sales.services');
 const { sales, salesById, saleProduct, updatedResponse } = require('../models/mocks/sales.model.mock');
 
 describe('Testes da camada salesService', function () {

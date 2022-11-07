@@ -2,7 +2,7 @@ const { expect } = require('chai');
 const sinon = require('sinon');
 
 const connection = require('../../../src/db/connection');
-const salesModel = require('../../../src/models/sales.model');
+const salesModel = require('../../../src/models/sales.models');
 const { sales, salesById, deletedResult, updatedResponse, saleProduct } = require('./mocks/sales.model.mock');
 
 describe('Testes da camada salesModel', function () {
