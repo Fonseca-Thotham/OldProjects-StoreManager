@@ -34,7 +34,6 @@ const deleteSale = async (req, res) => {
   const sales = await salesService.getSalesById(id);
 
   if (sales.length === 0) return res.status(404).json({ message: 'Sale not found' });
-
   await salesService.deleteSale(id);
 
   res.status(204).send();
