@@ -1,46 +1,65 @@
-const { productsService } = require('../services');
+const productsService = require('../services/products.service');
 
-const getAllProducts = async (_request, response) => {
-  const result = await productsService.getAll();
-  return response.status(200).json(result);
+const getProducts = async (_req, res) => {
+  const products = await productsService.getProducts();
+  res.status(200).json(products);
 };
 
-const getByIdProducts = async (request, response) => {
-  const { id } = request.params;
-  const result = await productsService.getById(id);
+const getProductsById = async (req, res) => {
+  const { id } = req.params;
+  const product = await productsService.getProductsById(id);
 
-  if (result) {
-    return response.status(200).json(result);
+  if (!product) return res.status(404).json({ message: 'Product not found' });
+
+  res.status(200).json(product);
+};
+
+const createNewProduct = async (req, res) => {
+  const { name } = req.body;
+
+  const [product] = await productsService.createNewProduct(name);
+
+  res.status(201).json({ name, id: product.insertId });
+};
+
+const updateProduct = async (req, res) => {
+  const { id } = req.params;
+  const { name } = req.body;
+
+  const product = await productsService.updateProduct(name, id);
+
+  if (product[0].affectedRows === 0) {
+    return res.status(404).json({ message: 'Product not found' });
   }
-  return response.status(404).json({ message: 'Product not found' });
+
+  res.status(200).json({ id, name });
 };
 
-const createNewProduct = async (request, response) => {
-  const productName = request.body;
-  const result = await productsService.createProduct(productName);
+const deleteProduct = async (req, res) => {
+  const { id } = req.params;
 
-  response.status(201).json(result);
+  const deleted = await productsService.deleteProduct(id);
+
+  if (deleted === 0) return res.status(404).json({ message: 'Product not found' });
+
+  res.status(204).send();
 };
 
-const updateProduct = async (request, response) => {
-  const { id } = request.params;
-  const { name } = request.body;
-  const { code, message } = await productsService.updateProductName(name, id);
+const getProductsByName = async (req, res) => {
+  const { q } = req.query;
 
-  response.status(code).json(message);
-};
+  const products = await productsService.getProductsByName(q);
 
-const deleteProduct = async (request, response) => {
-  const { id } = request.params;
-  const { code, message } = await productsService.deleteProductId(id);
+  if (!products) return res.status(404).json({ message: 'Product not found' });
 
-  response.status(code).json(message);
+  res.status(200).json(products);
 };
 
 module.exports = {
-  getAllProducts,
-  getByIdProducts,
+  getProducts,
+  getProductsById,
   createNewProduct,
   updateProduct,
   deleteProduct,
+  getProductsByName,
 };

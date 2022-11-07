@@ -1,36 +1,55 @@
-const { salesModel } = require('../models');
+const salesModel = require('../models/sales.models');
 
-const getAll = async () => {
-  const result = await salesModel.selectGetAll();
-  return { code: 200, message: result };
-};
+const createNewSale = async (sales) => {
+  const products = await Promise.all(sales.map(({ productId }) => salesModel
+    .findId(productId)));
 
-const getById = async (id) => {
-  const result = await salesModel.selectGetById(id);
-
-  if (result.length !== 0) {
-    return { code: 200, message: result };
+  if (products.some((product) => product.length === 0)) {
+    return { message: 'Product not found' };
   }
 
-  return {
-    code: 404, message: { message: 'Sale not found' },
-  };
+  const saleId = await salesModel.insertSale();
+  await Promise.all(sales.map((sale) => (
+    salesModel.insertSaleProduct(saleId, sale.productId, sale.quantity)
+  )));
+
+  return saleId;
 };
 
-const deleteSaleId = async (id) => {
-  const [getSalesId] = await salesModel.selectGetById(id);
-  await salesModel.deleteSaleId(id);
+const getSales = async () => {
+  const [result] = await salesModel.findAll();
+  return result;
+};
 
-  if (!getSalesId) {
-    return {
-      code: 404, message: { message: 'Sale not found' },
-    };
+const getSalesById = async (id) => {
+  const [result] = await salesModel.findSalesById(id);
+  return result;
+};
+
+const deleteSale = async (id) => {
+  const result = await salesModel.deleteSale(id);
+  return result;
+};
+
+const updateSales = async (saleId, sales) => {
+  const products = await Promise.all(sales.map(({ productId }) => salesModel
+    .findSalesProduct(productId, saleId)));
+
+  if (products.some((product) => product.length === 0)) {
+    return { message: 'Product not found' };
   }
-  return { code: 204 };
+
+  const result = await Promise.all(sales.map(({ quantity, productId }) => (
+    salesModel.updateSale(quantity, saleId, productId)
+  )));
+
+  return result;
 };
 
 module.exports = {
-  getAll,
-  getById,
-  deleteSaleId,
+  createNewSale,
+  getSales,
+  getSalesById,
+  deleteSale,
+  updateSales,
 };

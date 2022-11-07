@@ -1,42 +1,55 @@
-const connection = require('./database/connection');
+const connection = require('../db/connection');
 
-const selectGetAll = async () => connection.execute(
-  'SELECT * FROM StoreManager.products',
-);
-
-const selectGetById = async (productId) => connection.execute(
-  'SELECT * FROM StoreManager.products WHERE id = ?', [productId],
-);
-
-const insertName = async (name) => {
-  const [{ insertId }] = await connection.execute(
-    'INSERT INTO StoreManager.products(name) VALUE (?)', [name],
-  );
-  return { id: insertId, name };
+const findAll = async () => {
+  const products = await connection.execute('SELECT * FROM StoreManager.products');
+  return products;
 };
 
-const updateName = async (name, id) => {
-  const [result] = await connection.execute(
-    `UPDATE StoreManager.products
-      SET name = ?
-      WHERE id = ?`,
+const findProductById = async (id) => {
+  const product = await connection.execute(
+    'SELECT * FROM StoreManager.products WHERE id = ?',
+    [id],
+  );
+  return product;
+};
+
+const insertProduct = async (name) => {
+  const product = await connection.execute(
+    'INSERT INTO StoreManager.products (name) VALUES (?)', [name],
+  );
+  return product;
+};
+
+const updateProduct = async (name, id) => {
+  const newProduct = await connection.execute(
+    'UPDATE StoreManager.products SET name = ? WHERE id = ?;',
     [name, id],
   );
-  return result;
+  return newProduct;
 };
 
-const deleteNameId = async (id) => {
-  const [result] = await connection.execute(
-    `DELETE FROM StoreManager.products
-      WHERE id = ?`, [id],
+const deleteProduct = async (id) => {
+  const [product] = await connection.execute(
+    'DELETE FROM StoreManager.products WHERE id = ?',
+    [id],
   );
-  return result;
+  return product;
+};
+
+const findProductByName = async (name) => {
+  const products = await connection.execute(
+    'SELECT * FROM StoreManager.products WHERE name LIKE ?',
+    [`%${name}%`],
+  );
+
+  return products;
 };
 
 module.exports = {
-  selectGetAll,
-  selectGetById,
-  insertName,
-  updateName,
-  deleteNameId,
+  findAll,
+  findProductById,
+  insertProduct,
+  updateProduct,
+  deleteProduct,
+  findProductByName,
 };

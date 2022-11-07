@@ -1,48 +1,40 @@
-const { productsModel } = require('../models');
+const productsModel = require('../models/products.model');
 
-const getAll = async () => {
-  const [result] = await productsModel.selectGetAll();
+const getProducts = async () => {
+  const [result] = await productsModel.findAll();
   return result;
 };
 
-const getById = async (productId) => {
-  const [[result]] = await productsModel.selectGetById(productId);
-  return result || false;
-};
-
-const createProduct = async (product) => {
-  const result = await productsModel.insertName(product.name);
+const getProductsById = async (id) => {
+  const [[result]] = await productsModel.findProductById(id);
   return result;
 };
 
-const updateProductName = async (name, id) => {
-  const [[getProductId]] = await productsModel.selectGetById(id);
-  await productsModel.updateName(name, id);
-
-  if (!getProductId) {
-    return {
-      code: 404, message: { message: 'Product not found' },
-    };
-  }
-  return { code: 200, message: { id, name } };
+const createNewProduct = async (name) => {
+  const result = await productsModel.insertProduct(name);
+  return result;
 };
 
-const deleteProductId = async (id) => {
-  const [[getProductId]] = await productsModel.selectGetById(id);
-  await productsModel.deleteNameId(id);
+const updateProduct = async (name, id) => {
+  const result = await productsModel.updateProduct(name, id);
+  return result;
+};
 
-  if (!getProductId) {
-    return {
-      code: 404, message: { message: 'Product not found' },
-    };
-  }
-  return { code: 204 };
+const deleteProduct = async (id) => {
+  const { affectedRows } = await productsModel.deleteProduct(id);
+  return affectedRows;
+};
+
+const getProductsByName = async (name) => {
+  const [result] = await productsModel.findProductByName(name);
+  return result;
 };
 
 module.exports = {
-  getAll,
-  getById,
-  createProduct,
-  updateProductName,
-  deleteProductId,
+  getProducts,
+  getProductsById,
+  createNewProduct,
+  updateProduct,
+  deleteProduct,
+  getProductsByName,
 };
