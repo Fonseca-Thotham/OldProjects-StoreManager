@@ -4,9 +4,11 @@ const chai = require('chai')
 const chaiHttp = require('chai-http');
 
 const connection = require('../../../src/models/database/connection');
-const { STATUS_NOT_FOUND, STATUS_OK, allProducts } = require('./mock/products.controller.mock')
+const { STATUS_NOT_FOUND, STATUS_OK, allProducts, newProductName, updateProduct } = require('./mock/products.controller.mock')
 
 chai.use(chaiHttp)
+
+
 
 describe('Teste unitário da camada Controller', function () {
   afterEach(sinon.restore);
@@ -35,4 +37,12 @@ describe('Teste unitário da camada Controller', function () {
     chai.expect(response.status).to.be.equal(STATUS_NOT_FOUND);
   });
 
+  it('POST /products, retorna um produto cadastrado', async function () {
+    sinon
+      .stub(connection, "execute")
+      .resolves([newProductName]);
+    const response = await chai.request(app).post("/products").send(newProductName)
+    chai.expect(response.status).to.be.equal(201);
+    chai.expect(response.body).to.be.deep.equal(newProductName);
+  });
 });

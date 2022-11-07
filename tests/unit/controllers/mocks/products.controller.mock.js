@@ -16,8 +16,20 @@ const allProducts = [
   },
 ];
 
+const newProductName = {
+  name: 'Armadura do Homem de Ferro'
+}
+
+const updateProduct = {
+  message: {
+    name: 'Capa do Batman'
+  }
+}
+
 module.exports = {
   STATUS_NOT_FOUND,
   STATUS_OK,
   allProducts,
+  newProductName,
+  updateProduct,
 };

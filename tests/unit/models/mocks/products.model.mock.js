@@ -18,7 +18,13 @@ const productId = {
   name: 'Escudo do Capitão América'
 };
 
+const newProductName = {
+  id: 4,
+  name: 'Armadura do Homem de Ferro'
+}
+
 module.exports = {
   products,
   productId,
+  newProductName,
 };
